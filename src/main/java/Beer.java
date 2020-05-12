@@ -1,8 +1,14 @@
+import java.util.ArrayList;
+
 /**
  * Class that represents a beer with the attributes isDark, wort, the liquid,
  * and liquid's attributes
  */
 public class Beer{
+  public static ArrayList<Beer> lightBeers = new ArrayList<Beer>();
+  private boolean isDark;
+  private int wort;
+  private Liquid liquid;
 
     /**
      * Constructor for beer, also creates a list of pale beers.
@@ -15,12 +21,27 @@ public class Beer{
      *                                  created
      */
     public Beer(Liquid liquid, String name, boolean isDark, int wort) throws IllegalArgumentException{
+      super(name);
+      this.liquid = liquid;
+      this.isDark = isDark;
+      this.wort = wort;
+      if (!this.isAlcoholic()) {
+          throw new IllegalArgumentException("Alcohol free beer is not beer!");
+      }
+      if (!this.isDark) {
+          lightBeers.add(this);
+      }
     }
 
     /**
      * @return String with the names of the beers in the List lightBeers
      */
     public static String printLightBeers() {
+      String output = "";
+      for (Beer i : lightBeers) {
+          output += i.getName() + "\n";
+      }
+      return output;
     }
 
     /**
@@ -29,6 +50,7 @@ public class Beer{
      * @return returns a String for the beer's name
      */
     public String getName() {
+      return super.name;
     }
 
     /**
@@ -37,6 +59,7 @@ public class Beer{
      * @return Object Liquid of the corresponding beer
      */
     public Liquid getLiquid() {
+      return liquid;
     }
 
     /**
@@ -45,6 +68,7 @@ public class Beer{
      * @param liquid New liquid to set
      */
     public void setLiquid(Liquid liquid) {
+      this.liquid = liquid;
     }
 
     /**
@@ -53,6 +77,7 @@ public class Beer{
      * @return name of liquid
      */
     public String getType() {
+      return liquid.getName();
     }
 
     /**
@@ -61,6 +86,7 @@ public class Beer{
      * @param type String representing the liquid's name/beer type
      */
     public void setType(String type) {
+      liquid.setName(type);
     }
 
     /**
@@ -69,6 +95,7 @@ public class Beer{
      * @return bool for whether the beer is dark or not
      */
     public boolean isDark() {
+      return isDark;
     }
 
     /**
@@ -77,6 +104,7 @@ public class Beer{
      * @param dark bool if the beer is set to dark
      */
     public void setDark(boolean dark) {
+      isDark = dark;
     }
 
     /**
@@ -85,6 +113,7 @@ public class Beer{
      * @return Beer's wort
      */
     public int getWort() {
+      return wort;
     }
 
     /**
@@ -93,6 +122,7 @@ public class Beer{
      * @param wort int for the wort
      */
     public void setWort(int wort) {
+      this.wort = wort;
     }
 
     /**
@@ -103,6 +133,7 @@ public class Beer{
 
     @Override
     public double getVolume() {
+      return this.liquid.getVolume();
     }
 
     /**
@@ -112,6 +143,7 @@ public class Beer{
 
     @Override
     public double getAlcoholPercent() {
+      return this.liquid.getAlcoholPercent();
     }
 
     /**
@@ -120,5 +152,6 @@ public class Beer{
      */
     @Override
     public boolean isAlcoholic() {
+        return this.liquid.getAlcoholPercent() > 0;
     }
 }
