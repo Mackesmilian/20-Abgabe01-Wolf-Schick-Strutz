@@ -20,7 +20,7 @@ public class Spirit extends SimpleDrink {
      *
      * @return return all the spirits with more then 50% alcohol content
      */
-    public static String hardStufftoString(){
+    public static String hardStufftoString(boolean isDark, String mainIngredient, String name, Liquid l) throws IllegalArgumentException{
     }
 
     /**
@@ -37,7 +37,7 @@ public class Spirit extends SimpleDrink {
      * @param dark is the boolean that comes with the function call, true is
      *             dark false isn't dark
      */
-    public void setDark() {  
+    public void setDark(boolean dark) {  
     }
 
     /**
@@ -54,7 +54,7 @@ public class Spirit extends SimpleDrink {
      * @param mainIngredient the name (as String) of the main ingredient in the
      *                       spirit
      */
-    public void setMainIngredient() {
+    public void setMainIngredient(String mainIngredient) {
     }
 
     /**
