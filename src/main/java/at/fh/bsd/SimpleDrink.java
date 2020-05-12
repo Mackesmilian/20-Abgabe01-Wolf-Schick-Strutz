@@ -1,3 +1,5 @@
+package at.fh.bsd;
+
 /**
  * Class represents a simple drink liquid which can be used in
  * drinks
@@ -8,7 +10,7 @@ public class SimpleDrink extends Drink{
      */
     protected Liquid l;
     /**
-     * Creates a at.fhj.iit.SimpleDrink object with given age and
+     * Creates a at.fhj.iit.at.fh.bsd.SimpleDrink object with given age and
      * liquid
      *
      * @param name name of drink

@@ -1,5 +1,8 @@
+package at.fh.bsd;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,9 +28,9 @@ public class TestLiquid {
      */
     @Test
     public void testVolume() {
-        assertEquals(1, test.getVolume());
+        Assertions.assertEquals(1, test.getVolume());
         test.setVolume(2);
-        assertEquals(2, test.getVolume());
+        Assertions.assertEquals(2, test.getVolume());
     }
 
     /**
@@ -35,8 +38,8 @@ public class TestLiquid {
      */
     @Test
     public void testAlcoholPercent() {
-        assertEquals(0, test.getAlcoholPercent());
+        Assertions.assertEquals(0, test.getAlcoholPercent());
         test.setAlcoholPercent(3);
-        assertEquals(3, test.getAlcoholPercent());
+        Assertions.assertEquals(3, test.getAlcoholPercent());
     }
 }

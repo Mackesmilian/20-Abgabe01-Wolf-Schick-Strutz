@@ -1,5 +1,9 @@
+package at.fh.bsd;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -33,15 +37,15 @@ import static org.junit.jupiter.api.Assertions.*;
      */
      @Test
      public void testConstructor() {
-           assertTrue(laphroaig.isDark());
-           assertFalse(slivovic.isDark());
-           assertEquals("malt", laphroaig.getMainIngredient());
-           assertEquals("Sugar Cane", havana.getMainIngredient());
-           assertEquals("slivovic", slivovic.getName());
-           assertEquals("Zirbe", zirbe.l.getName());
-           assertEquals("Stroh 80", stroh.l.getName());
-           assertEquals(0.1, stroh.getVolume());
-           assertEquals(40, zirbe.getAlcoholPercent());
+           Assertions.assertTrue(laphroaig.isDark());
+           Assertions.assertFalse(slivovic.isDark());
+           Assertions.assertEquals("malt", laphroaig.getMainIngredient());
+           Assertions.assertEquals("Sugar Cane", havana.getMainIngredient());
+           Assertions.assertEquals("slivovic", slivovic.getName());
+           Assertions.assertEquals("Zirbe", zirbe.l.getName());
+           Assertions.assertEquals("Stroh 80", stroh.l.getName());
+           Assertions.assertEquals(0.1, stroh.getVolume());
+           Assertions.assertEquals(40, zirbe.getAlcoholPercent());
      }
 
      /**
@@ -50,7 +54,7 @@ import static org.junit.jupiter.api.Assertions.*;
       */
       @Test
       public void testHardStuffToString() {
-            assertEquals("slivovic\nStroh\n", Spirit.hardStufftoString());
+            Assertions.assertEquals("slivovic\nStroh\n", Spirit.hardStufftoString());
       }
 
       /**
@@ -74,9 +78,9 @@ import static org.junit.jupiter.api.Assertions.*;
         public void testSetDark() {
             Spirit test = new Spirit(false, "testii", "testtest", (new Liquid("test",
                     0.1, 40)));
-            assertFalse(test.isDark());
+            Assertions.assertFalse(test.isDark());
             test.setDark(true);
-            assertTrue(test.isDark());
+            Assertions.assertTrue(test.isDark());
         }
 
         /**
@@ -88,8 +92,8 @@ import static org.junit.jupiter.api.Assertions.*;
          public void testSetMainIngredient() {
              Spirit test = new Spirit(false, "testii", "testtest", (new Liquid("test",
                      0.1, 40)));
-             assertEquals(test.getMainIngredient(), "testii");
+             Assertions.assertEquals(test.getMainIngredient(), "testii");
              test.setMainIngredient("testii2");
-             assertEquals(test.getMainIngredient(), "testii2");
+             Assertions.assertEquals(test.getMainIngredient(), "testii2");
          }
        }

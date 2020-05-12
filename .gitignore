@@ -2,3 +2,7 @@
 Konfig01.iml
 
 *.class
+
+.idea/
+
+*.kotlin_module

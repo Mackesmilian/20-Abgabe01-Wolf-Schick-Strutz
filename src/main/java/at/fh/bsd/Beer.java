@@ -1,10 +1,12 @@
+package at.fh.bsd;
+
 import java.util.ArrayList;
 
 /**
  * Class that represents a beer with the attributes isDark, wort, the liquid,
  * and liquid's attributes
  */
-public class Beer{
+public class Beer extends Drink{
   public static ArrayList<Beer> lightBeers = new ArrayList<Beer>();
   private boolean isDark;
   private int wort;
@@ -17,7 +19,7 @@ public class Beer{
      * @param name   the beers name
      * @param isDark a bool whether the bear is pale or dark
      * @param wort   the beer's wort, aka strength in taste
-     * @throws IllegalArgumentException when Beer with alcohol content 0 is
+     * @throws IllegalArgumentException when at.fh.bsd.Beer with alcohol content 0 is
      *                                  created
      */
     public Beer(Liquid liquid, String name, boolean isDark, int wort) throws IllegalArgumentException{
@@ -56,7 +58,7 @@ public class Beer{
     /**
      * Getter for the corresponding liquid
      *
-     * @return Object Liquid of the corresponding beer
+     * @return Object at.fh.bsd.Liquid of the corresponding beer
      */
     public Liquid getLiquid() {
       return liquid;
@@ -110,7 +112,7 @@ public class Beer{
     /**
      * Getter for wort
      *
-     * @return Beer's wort
+     * @return at.fh.bsd.Beer's wort
      */
     public int getWort() {
       return wort;

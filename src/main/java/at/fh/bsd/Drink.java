@@ -1,3 +1,5 @@
+package at.fh.bsd;
+
 /**
  * Abstract base class for concrete drink classes
  */
@@ -7,7 +9,7 @@ public abstract class Drink {
      */
     protected String name;
     /**
-     * Creates a at.fhj.iit.Drink object with given name
+     * Creates a at.fhj.iit.at.fh.bsd.Drink object with given name
      *
      * @param name name of the drink
      *

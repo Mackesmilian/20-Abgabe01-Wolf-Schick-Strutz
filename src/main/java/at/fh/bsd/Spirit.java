@@ -1,3 +1,5 @@
+package at.fh.bsd;
+
 import java.util.ArrayList;
 
 public class Spirit extends SimpleDrink {
@@ -6,7 +8,7 @@ public class Spirit extends SimpleDrink {
     private static ArrayList<Spirit> hardStuff = new ArrayList<>();
 
     /**
-     * Constructor for Spirit
+     * Constructor for at.fh.bsd.Spirit
      * @param isDark bool for whether the spirit is dark or not
      * @param mainIngredient the spirit's main ingredient
      * @param name the spirit's name
@@ -87,5 +89,4 @@ public class Spirit extends SimpleDrink {
     public String getName(){
         return super.name;
     }
-}
 }

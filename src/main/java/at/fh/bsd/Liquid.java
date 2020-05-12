@@ -1,3 +1,5 @@
+package at.fh.bsd;
+
 /**
  * Class represents a liquid which can be used in
  * drinks

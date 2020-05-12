@@ -1,5 +1,8 @@
+package at.fh.bsd;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,11 +24,11 @@ public class TestBeer {
 
     /**
      * A method to see if the List was created correctly and if the print
-     * method of Beer works correctly
+     * method of at.fh.bsd.Beer works correctly
      */
     @Test
     public void testList(){
-        assertEquals("goesser\ncorona\n", Beer.printLightBeers());
+        Assertions.assertEquals("goesser\ncorona\n", Beer.printLightBeers());
     }
 
     /**
@@ -46,15 +49,15 @@ public class TestBeer {
      */
     @Test
     public void testConstr(){
-        assertEquals("lager", corona.getType());
-        assertEquals("lager", goesser.getLiquid().getName());
-        assertEquals(0.5, goesser.getLiquid().getVolume());
-        assertEquals(6, goesser.getLiquid().getAlcoholPercent());
-        assertEquals(16, guiness.getWort());
+        Assertions.assertEquals("lager", corona.getType());
+        Assertions.assertEquals("lager", goesser.getLiquid().getName());
+        Assertions.assertEquals(0.5, goesser.getLiquid().getVolume());
+        Assertions.assertEquals(6, goesser.getLiquid().getAlcoholPercent());
+        Assertions.assertEquals(16, guiness.getWort());
         for (Beer i: Beer.lightBeers) {
-            assertFalse(i.isDark());
+            Assertions.assertFalse(i.isDark());
         }
-        assertTrue(guiness.isDark());
+        Assertions.assertTrue(guiness.isDark());
     }
 
     /**
@@ -67,9 +70,9 @@ public class TestBeer {
                 "test", false, 12);
         Liquid lTest = new Liquid("new Name", 0.3, 5);
         test.setLiquid(lTest);
-        assertEquals("new Name", test.getLiquid().getName());
-        assertEquals(0.3, test.getVolume());
-        assertEquals(5, test.getAlcoholPercent());
+        Assertions.assertEquals("new Name", test.getLiquid().getName());
+        Assertions.assertEquals(0.3, test.getVolume());
+        Assertions.assertEquals(5, test.getAlcoholPercent());
     }
 
     /**
@@ -80,9 +83,9 @@ public class TestBeer {
     public void testSetType(){
         Beer test = new Beer(new Liquid("test", 0.5, 6),
                 "test", false, 12);
-        assertEquals("test", test.getType());
+        Assertions.assertEquals("test", test.getType());
         test.setType("Ale");
-        assertEquals("Ale", test.getType());
+        Assertions.assertEquals("Ale", test.getType());
     }
 
     /**
@@ -93,9 +96,9 @@ public class TestBeer {
     public void testSetDark(){
         Beer test = new Beer(new Liquid("test", 0.5, 6),
                 "test", false, 12);
-        assertFalse(test.isDark());
+        Assertions.assertFalse(test.isDark());
         test.setDark(true);
-        assertTrue(test.isDark());
+        Assertions.assertTrue(test.isDark());
     }
 
     /**
@@ -106,9 +109,9 @@ public class TestBeer {
     public void testSetWort(){
         Beer test = new Beer(new Liquid("test", 0.5, 6),
                 "test", false, 12);
-        assertEquals(12, test.getWort());
+        Assertions.assertEquals(12, test.getWort());
         test.setWort(25);
-        assertEquals(25, test.getWort());
+        Assertions.assertEquals(25, test.getWort());
     }
 
 }
