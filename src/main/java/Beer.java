@@ -14,7 +14,7 @@ public class Beer{
      * @throws IllegalArgumentException when Beer with alcohol content 0 is
      *                                  created
      */
-    public Beer(){
+    public Beer(Liquid liquid, String name, boolean isDark, int wort) throws IllegalArgumentException{
     }
 
     /**
@@ -44,7 +44,7 @@ public class Beer{
      *
      * @param liquid New liquid to set
      */
-    public void setLiquid() {
+    public void setLiquid(Liquid liquid) {
     }
 
     /**
@@ -60,7 +60,7 @@ public class Beer{
      *
      * @param type String representing the liquid's name/beer type
      */
-    public void setType() {
+    public void setType(String type) {
     }
 
     /**
@@ -76,7 +76,7 @@ public class Beer{
      *
      * @param dark bool if the beer is set to dark
      */
-    public void setDark() {
+    public void setDark(boolean dark) {
     }
 
     /**
@@ -92,7 +92,7 @@ public class Beer{
      *
      * @param wort int for the wort
      */
-    public void setWort() {
+    public void setWort(int wort) {
     }
 
     /**
