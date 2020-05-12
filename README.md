@@ -11,7 +11,7 @@ In this program, we will implement the classes `Beer.java` and `Spirit.java`. `B
 
 ### Beer.java
 
-This class extends `Drink.java`. In this class, we will implement one exception - most likely an `IllegalArgumentException` (a custom exception won't work as `Beer.java` will already extend `Drink.java` and multiple inheritance is not supported by java) when someone tries to create an object Beer but inputs 0 alcohol percentage. The exception will tell the User that "Alcohol free beer is not beer".
+This class extends `Drink.java`. In this class, we will implement one exception - most likely an `IllegalArgumentException` (a custom exception won't work as `Beer.java` will already extend `Drink.java` and multiple inheritance is not supported by java) when someone tries to create an object Beer but inputs 0 alcohol percentage. The exception will tell the User that "Alcohol free beer is not beer" (see example below).
 Furthermore, we will implement an `ArrayList` of light beers. As the name suggests, this will simply be an `ArrayList` containing all light coloured Beer objects the user created. For this list there will be a method which returns all names of the beers stored in the list.
 
 ### Spirit.java
@@ -26,7 +26,7 @@ The goal will be to reach 100% test coverage. For this we will most likely need 
 * `TestBeer.java`
 * `TestLiquid.java`
 * `TestSpirit.java`
-* `TestSimpleDrink.java` - although we are not 100% sure this one is necessary.
+* `TestSimpleDrink.java` - ~~although we are not 100% sure this one is necessary.~~ As it turns out, one simple method within `TestSimpleDrink.java` was needed.
 
 ### TestBeer.java
 
@@ -44,8 +44,37 @@ This class will work in exactly the same way `TestBeer.java`. There isn't much t
 
 ### TestSimpleDrink.java
 
-This will probably not be necessary because the other test method might be enough to get 100% test coverage.
+~~This will probably not be necessary because the other test method might be enough to get 100% test coverage.~~
+During our implementation, we realized there was one untested method within `SimpleDrink.java`, which means we needed a `TestSimpleDrink.java` class, which just contains one method.
 
+## Beer.java Constructor
+
+```Java
+public Beer(Liquid liquid, String name, boolean isDark, int wort) throws IllegalArgumentException {
+        super(name);
+        this.liquid = liquid;
+        this.isDark = isDark;
+        this.wort = wort;
+        if (!this.isAlcoholic()) {
+            throw new IllegalArgumentException("Alcohol free beer is not beer!");
+        }
+        if (!this.isDark) {
+            lightBeers.add(this);
+        }
+    }
+```
+As you can see, our "creative" exception is an `IllegalArgumentException` because alcohol free beer is not beer, therefore passing this to our constructor is illegal.
+Below you can see our test method for this exception:
+
+```Java
+@Test
+    public void checkException(){
+        assertThrows(IllegalArgumentException.class,()->{
+            Beer nonAlc = new Beer(new Liquid("lager", 0.5, 0),
+                    "NullKommaJosef", false, 0);
+        });
+    }
+```
 
 ## Contributing
 
