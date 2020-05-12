@@ -1,5 +1,9 @@
+import java.util.ArrayList;
+
 public class Spirit extends SimpleDrink {
-    
+    private boolean isDark;
+    private String mainIngredient;
+    private static ArrayList<Spirit> hardStuff = new ArrayList<>();
 
     /**
      * Constructor for Spirit
@@ -10,7 +14,16 @@ public class Spirit extends SimpleDrink {
      * @throws IllegalArgumentException is thrown when a spirit with less than 40%
      * alcohol content is created
      */
-    Spirit(){       
+    Spirit(boolean isDark, String mainIngredient, String name, Liquid l) throws IllegalArgumentException{
+        super(name, l);
+        if(l.getAlcoholPercent() < 40){
+            throw new IllegalArgumentException("This is not a spirit!");
+        }
+        this.isDark = isDark;
+        this.mainIngredient = mainIngredient;
+        if(this.l.getAlcoholPercent() > 50){
+            hardStuff.add(this);
+        }
     }
 
     /**
@@ -20,7 +33,13 @@ public class Spirit extends SimpleDrink {
      *
      * @return return all the spirits with more then 50% alcohol content
      */
-    public static String hardStufftoString(boolean isDark, String mainIngredient, String name, Liquid l) throws IllegalArgumentException{
+    public static String hardStufftoString(){
+        String output = "";
+        for (Spirit i : hardStuff) {
+            output += i.name;
+            output += "\n";
+        }
+        return output;
     }
 
     /**
@@ -29,6 +48,7 @@ public class Spirit extends SimpleDrink {
      * @return returns true if the drink is dark and false if the drink isn't
      */
     public boolean isDark() {
+        return isDark;
     }
 
     /**
@@ -37,7 +57,8 @@ public class Spirit extends SimpleDrink {
      * @param dark is the boolean that comes with the function call, true is
      *             dark false isn't dark
      */
-    public void setDark(boolean dark) {  
+    public void setDark(boolean dark) {
+        isDark = dark;
     }
 
     /**
@@ -46,6 +67,7 @@ public class Spirit extends SimpleDrink {
      * @return returns the name of the main ingredient of the spirit
      */
     public String getMainIngredient() {
+        return mainIngredient;
     }
 
     /**
@@ -55,6 +77,7 @@ public class Spirit extends SimpleDrink {
      *                       spirit
      */
     public void setMainIngredient(String mainIngredient) {
+        this.mainIngredient = mainIngredient;
     }
 
     /**
@@ -62,5 +85,7 @@ public class Spirit extends SimpleDrink {
      * @return String representing the spirit's name
      */
     public String getName(){
+        return super.name;
     }
+}
 }
